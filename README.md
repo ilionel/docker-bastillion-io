@@ -1,7 +1,5 @@
 # docker-bastillion-io
 Bastillion - the Web-Based Bastion Host and SSH Key Management (bastillion.io) into Docker container
-
-# docker-bastillion
 Docker image (based on alpine) for [Bastillion.io](https://www.bastillion.io/)
 
 ## What is Bastillion?
