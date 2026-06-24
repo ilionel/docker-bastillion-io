@@ -1,0 +1,6 @@
+ignored:
+  - DL3008  # apt: pin versions
+  - DL3013  # pip: pin versions
+  - DL3018  # apk: pin versions
+  - DL3003  # prefer WORKDIR over cd
+  - DL3020  # ADD vs COPY (ADD used for a remote release tarball)

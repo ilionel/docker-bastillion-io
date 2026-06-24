@@ -1,6 +1,7 @@
 #!/bin/ash
+# shellcheck shell=dash
 
-function savejceks {
+savejceks() {
   # copy JCEKS to persistent folder
   if [ -f /opt/bastillion/jetty/bastillion/WEB-INF/classes/bastillion.jceks ]; then
     echo "[startBastillion.sh INFO] copy JCEKS file to a save place"
@@ -19,5 +20,5 @@ if [ -f /opt/bastillion/jetty/bastillion/WEB-INF/classes/keydb/bastillion.jceks 
 fi
 
 # change to jetty dir and start jetty
-cd jetty
+cd jetty || exit 1
 java -Xms1024m -Xmx1024m -jar start.jar
