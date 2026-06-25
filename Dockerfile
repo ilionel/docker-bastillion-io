@@ -1,5 +1,5 @@
 # Intermediate container to build dockerize
-FROM golang:1.23-alpine AS dockerize
+FROM golang:1.26-alpine AS dockerize
 RUN apk --no-cache --update add openssl git
 
 WORKDIR /tmp/
