@@ -1,8 +1,9 @@
 # docker-bastillion-io
 
 [![CI](https://github.com/ilionel/docker-bastillion-io/actions/workflows/ci.yml/badge.svg)](https://github.com/ilionel/docker-bastillion-io/actions/workflows/ci.yml)
-Bastillion - the Web-Based Bastion Host and SSH Key Management (bastillion.io) into Docker container
-Docker image (based on alpine) for [Bastillion.io](https://www.bastillion.io/)
+
+A Docker image (Alpine-based) for [Bastillion](https://www.bastillion.io/) — the web-based
+bastion host and SSH key management server.
 
 ## What is Bastillion?
 
