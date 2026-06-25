@@ -13,7 +13,7 @@ privateKey={{ default .Env.SSH_PRIVATE_KEY "" }}
 #public ssh key, leave blank to generate key pair
 publicKey={{ default .Env.SSH_PUBLIC_KEY "" }}
 #default passphrase, leave blank for key without passphrase
-defaultSSHPassphrase=${randomPassphrase}
+defaultSSHPassphrase={{ default .Env.SSH_PASSPHRASE "" }}
 #enable audit
 enableInternalAudit={{ default .Env.ENABLE_INTERNAL_AUDIT "false" }}
 #keep audit logs for in days
