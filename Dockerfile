@@ -11,7 +11,7 @@ RUN go mod tidy
 RUN go install
 
 # Intermediate container to build bastillion
-FROM alpine:3.20 AS stage1
+FROM alpine:3.24 AS stage1
 ARG URL
 ENV URL=${URL}
 ADD ${URL} /tmp
@@ -28,7 +28,7 @@ COPY  ./bastillion/jetty-start.ini /opt/bastillion/jetty/start.ini
 
 
 # Final container with dockerize and bastillion
-FROM alpine:3.20 AS main
+FROM alpine:3.24 AS main
 RUN apk add --no-cache --update openjdk17-jdk
 
 # copy dockerize binaries from intermediate dockerize container
