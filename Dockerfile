@@ -31,16 +31,22 @@ COPY  ./bastillion/jetty-start.ini /opt/bastillion/jetty/start.ini
 FROM alpine:3.24 AS main
 RUN apk add --no-cache --update openjdk17-jdk
 
+RUN adduser -D bastillion
+
 # copy dockerize binaries from intermediate dockerize container
 COPY --from=dockerize /go/bin/dockerize /usr/local/bin/
 # copy bastillion binaries from intermediate "stage1" container
-COPY --from=stage1 /opt/bastillion /opt/bastillion
+# (owned by the runtime user: dockerize renders the config template and
+# Bastillion writes its keystore/database under this tree)
+COPY --from=stage1 --chown=bastillion:bastillion /opt/bastillion /opt/bastillion
 
 # this is the home of Bastillion
 WORKDIR /opt/bastillion
 
 # run rights
 RUN chmod +x /usr/local/bin/dockerize /opt/bastillion/startBastillion.sh
+
+USER bastillion
 
 # persistent data of Bastillion is stored here
 VOLUME /opt/bastillion/jetty/bastillion/WEB-INF/classes/keydb
